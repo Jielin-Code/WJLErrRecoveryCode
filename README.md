@@ -1,6 +1,5 @@
 # WJLErrRecoveryCode
 A brand new channel coding algorithm and simulation program, Test programs for the library and the simulation are included in the file.
-##############################################################################################
 
 #test.h
 #ifndef _TEST_H
@@ -22,9 +21,6 @@ extern "C" {
 #endif
 #endif
 
-##############################################################################################
-
-#test.c
 #include "test.h"
 #include "WJLErrRecoveryCore.h"
 #include <math.h>
@@ -384,7 +380,6 @@ void RandombyQualification()
 	printf("\n");
 	return 0;
 }
-##############################################################################################
 
 #mian.c
 #include "test.h"
