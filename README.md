@@ -1,5 +1,5 @@
-# WJLErrRecoveryCode
-A brand new channel coding algorithm and simulation program, Test programs for the library and the simulation are included in the file.
+#WJLErrRecoveryCode
+#A brand new channel coding algorithm and simulation program, Test programs for the library and the simulation are included in the file.
 
 #test.h
 #ifndef _TEST_H
