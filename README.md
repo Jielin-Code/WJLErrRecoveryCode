@@ -9,5 +9,5 @@ Based on the theory of jielin code error correction algorithm and based on metho
 Theory: Principles and Application of jielin-Lin Code
 Author: Wang Jielin
 Description: The error correction algorithm based on the weighted probability model is a brand new error correction algorithm
-Time: 20231030
-Version: 5.0.0
+Time: 20231110
+Version: 5.1.0
