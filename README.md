@@ -11,3 +11,13 @@ Author: Wang Jielin
 Description: The error correction algorithm based on the weighted probability model is a brand new error correction algorithm
 Time: 20231110
 Version: 5.1.0
+
+test by：
+DECODER_LIST_SIZE = 48;
+MAX_NUMBER_OF_0xFF = 3;
+START_LIMIT = 10;
+END_LIMIT = 6;
+FIRST_ERR_COMPARE_LIMIT = 2;
+BLOCK_ERR_COMPARE_LIMIT = 4;
+ERRBITS_LIMIT = 4;
+MAXIMUM_TRAVERSAL_TIMES = 8;
