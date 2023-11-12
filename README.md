@@ -12,7 +12,7 @@ Description: The error correction algorithm based on the weighted probability mo
 Time: 20231110
 Version: 5.1.0
 
-test by：
+0.0dB - 3.0dB test by：
 
 DECODER_LIST_SIZE = 48;
 
@@ -30,3 +30,22 @@ ERRBITS_LIMIT = 5;
 
 MAXIMUM_TRAVERSAL_TIMES = 8;
 
+
+
+3.5dB - 8.0dB test by：
+
+DECODER_LIST_SIZE = 48;
+
+MAX_NUMBER_OF_0xFF = 3;
+
+START_LIMIT = 10;
+
+END_LIMIT = 8;
+
+FIRST_ERR_COMPARE_LIMIT = 3;
+
+BLOCK_ERR_COMPARE_LIMIT = 4;
+
+ERRBITS_LIMIT = 5;
+
+MAXIMUM_TRAVERSAL_TIMES = 8;
