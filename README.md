@@ -51,3 +51,7 @@ BLOCK_ERR_COMPARE_LIMIT = 4;
 ERRBITS_LIMIT = 5;
 
 MAXIMUM_TRAVERSAL_TIMES = 8;
+
+20231222updated
+1. updated the QPSK AWGN simulation program, and open source the program.
+2. updated the source program for test test demo
