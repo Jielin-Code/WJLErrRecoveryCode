@@ -17,11 +17,11 @@ Version: 5.5.0
 
 par->DECODER_LIST_SIZE = 24;
 
-par->START_LIMIT = 6; // or 48bit
+par->START_LIMIT = 6; //Test DEMO α = 48
 
-par->END_LIMIT = 4; // or 32bit
+par->END_LIMIT = 4; // Test DEMO β = 32
 
-par->ERRBITS_LIMIT = 5;
+par->ERRBITS_LIMIT = 5; // Test DEMO τ_max = 5
 
-par->MAXIMUM_TRAVERSAL_TIMES = 8;
+par->MAXIMUM_TRAVERSAL_TIMES = 8; // Test DEMO ω = 8
 
