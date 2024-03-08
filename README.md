@@ -14,8 +14,14 @@ Description: The error correction algorithm based on the weighted probability mo
 Time: 20240308
 Version: 5.5.0
 
+
 par->DECODER_LIST_SIZE = 24;
+
 par->START_LIMIT = 6; // or 48bit
+
 par->END_LIMIT = 4; // or 32bit
+
 par->ERRBITS_LIMIT = 5;
+
 par->MAXIMUM_TRAVERSAL_TIMES = 8;
+
