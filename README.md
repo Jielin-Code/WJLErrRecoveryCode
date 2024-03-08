@@ -11,67 +11,11 @@
 Theory: Principles and Application of jielin-Lin Code
 Author: Wang Jielin
 Description: The error correction algorithm based on the weighted probability model is a brand new error correction algorithm
-Time: 20231110
-Version: 5.1.0
+Time: 20240308
+Version: 5.5.0
 
-0.0dB - 3.0dB test by：
-
-DECODER_LIST_SIZE = 48;
-
-MAX_NUMBER_OF_0xFF = 3;
-
-START_LIMIT = 10;
-
-END_LIMIT = 6;
-
-FIRST_ERR_COMPARE_LIMIT = 3;
-
-BLOCK_ERR_COMPARE_LIMIT = 4;
-
-ERRBITS_LIMIT = 5;
-
-MAXIMUM_TRAVERSAL_TIMES = 8;
-
-
-
-3.5dB - 8.0dB test by：
-
-DECODER_LIST_SIZE = 48;
-
-MAX_NUMBER_OF_0xFF = 3;
-
-START_LIMIT = 10;
-
-END_LIMIT = 8;
-
-FIRST_ERR_COMPARE_LIMIT = 3;
-
-BLOCK_ERR_COMPARE_LIMIT = 4;
-
-ERRBITS_LIMIT = 5;
-
-MAXIMUM_TRAVERSAL_TIMES = 8;
-
-20231222updated
-
-1. updated the QPSK AWGN simulation program, and open source the program.
-
-2. updated the source program for test test demo.
-
-
-
-20231225updated
-
-1.The simulation program for BPSK AWGN was added.
-
-2. updated the source program for test test demo.
-
-
-
-20231226updated
-
-1. Modified the cache overflow error.
-
-2. Modified the dead-loop error.
-  
-3. Add the setting scheme of frames and blocks.
+par->DECODER_LIST_SIZE = 24;
+par->START_LIMIT = 6; // or 48bit
+par->END_LIMIT = 4; // or 32bit
+par->ERRBITS_LIMIT = 5;
+par->MAXIMUM_TRAVERSAL_TIMES = 8;
