@@ -14,7 +14,7 @@ Description: The error correction algorithm based on the weighted probability mo
 Time: 20240308
 Version: 5.5.0
 
-
+test1:
 par->DECODER_LIST_SIZE = 24;
 
 par->START_LIMIT = 6; //Test DEMO α = 48
@@ -25,3 +25,15 @@ par->ERRBITS_LIMIT = 5; // Test DEMO τ_max = 5
 
 par->MAXIMUM_TRAVERSAL_TIMES = 8; // Test DEMO ω = 8
 
+
+
+test2:
+par->DECODER_LIST_SIZE = 24;
+
+par->START_LIMIT = 7; //Test DEMO α = 56
+
+par->END_LIMIT = 3; // Test DEMO β =24
+
+par->ERRBITS_LIMIT = 5; // Test DEMO τ_max = 5
+
+par->MAXIMUM_TRAVERSAL_TIMES = 8; // Test DEMO ω = 8
