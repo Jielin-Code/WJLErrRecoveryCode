@@ -20,10 +20,6 @@ BUG修复说明：
 #ifndef _WJLERRRECOVERYCORE_H
 #define _WJLERRRECOVERYCORE_H
 
-//#define LIST_SIZE 48
-//#define START_LIMIT 8
-//#define END_LIMIT 12
-
 // 参数结构体，这些值是影响纠错效果的核心参数，可以根据不同的信道设置不同的参数
 typedef struct
 {
@@ -45,7 +41,7 @@ typedef struct
 	// 一般设置为3，4，5，6，7，8，默认设置为4或5
 	int ERRBITS_LIMIT;
 	// 遍历类型，0表示从1比特错误遍历到ERRBITS_LIMIT，1表示从ERRBITS_LIMIT遍历到1
-	int ERGODIC_TYPE;
+	int ERGODIC_MODEL;
 
 }WJL_ALGORITHM_PARAMETERS;
 
@@ -138,4 +134,3 @@ extern "C" {
 }
 #endif
 #endif
-
