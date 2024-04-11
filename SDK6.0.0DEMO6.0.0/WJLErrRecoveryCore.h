@@ -11,7 +11,7 @@
 理论：《杰林码原理及应用》
 作者：王杰林
 描述：基于加权概率模型的纠错算法，是全新的纠错算法
-时间：20240314
+时间：20240411
 版本：6.0.0
 BUG修复说明：
 1、完全按照论文编写的测试程序
@@ -23,25 +23,23 @@ BUG修复说明：
 // 参数结构体，这些值是影响纠错效果的核心参数，可以根据不同的信道设置不同的参数
 typedef struct
 {
-	// 码长，单位为字节，编译码长度
-	int CODE_LENGTH;
 	// WJL_ERRRECOVERY_DECODER对象列表大小，一般设置为24，36，如果listIndex >= coder->par->LIST_SIZE说明LIST_SIZE设置的太小了
 	int LIST_SIZE;
-	// 杰林码纠错译码过程，会自动定位错误位置（即不满足“每个符号0被一个或两个1隔开”自动中止），定位错误位置后
-	// 通过设置START_LIMIT和END_LIMIT来确定纠错字节的范围，越大纠错能力越强，同时需要运算的时间也越长
-	// 根据杰林码的理论START_LIMIT取值范围为5到12，对应的纠错能力也不一样，最大值为12，根据理论得出最大前向纠错范围为12个字节
-	// 一般设置为6，8，10或12
+	// 码长，单位为字节，编译码长度
+	int CODE_LENGTH;
+	// 末尾追加的二进制序列Q的字节长度，对应论文中的κ
+	int Q_LENGTH;
+	// 纠错区间的下限极值，对应论文中的α
 	int START_LIMIT;
-	// 为保障纠错验证的正确概率，向后放宽一定的数量，当错误在END_LIMIT的基础上错误定位在COMPARE_LIMIT之后，则说明首个错误已经纠正
-	// 可以根据实际信噪比和信道要求设置纠错范围
-	// 一般设置为6,8,10
+	// 纠错区间的上限极值，对应论文中的β
 	int END_LIMIT;
-	// 限制错误比特的个数，即在START_LIMIT到END_LIMIT个字节范围内错误比特的个数，暂时仅支持10（含）个比特以下的差错，越多需要遍历的可能性也越多
-	// 在算力足够的情况下，完全可以采用并行验证的方案实现成倍的效率提升，比如GPU、NPU或其他硬件化，本库只考虑在CPU环境下的方案
-	// 一般设置为3，4，5，6，7，8，默认设置为4或5
+	// 纠错区间内最大翻转比特个数，对应论文中的τ_max
 	int ERRBITS_LIMIT;
 	// 遍历类型，0表示从1比特错误遍历到ERRBITS_LIMIT，1表示从ERRBITS_LIMIT遍历到1
 	int ERGODIC_MODEL;
+	// CODE_LENGTH和Q_LENGTH确定时，编码后末尾有几个字节是完全相同的，对于译码端来讲这些字节完全可以在译码时加上，无需传输从而提高传输速率
+	unsigned char* SynchronizationBytes;
+	int SynchronizationLength;
 
 }WJL_ALGORITHM_PARAMETERS;
 
@@ -84,11 +82,13 @@ typedef struct
 	int correctedBytePos;         // 被纠正字节的下标，指InBytesArray数组的下标
 	int max_checkfindPos;         // 记录检错译码最大findPos
 }WJL_FUNCTION_PARAMETERS;
+
 // 纠错完毕后也需要解码器
 typedef struct
 {
 	// 输入
 	WJL_ALGORITHM_PARAMETERS* par;           // 参数对象，不同的参数对应不同的译码能力
+
 	unsigned char* InBytesArray;             // 输入字节缓存数组
 	unsigned int InBytesLength;              // 输入字节的总长度
 	unsigned int InBytesIndex;               // InBytesArray的下标
@@ -125,11 +125,10 @@ extern "C" {
 	int WJLErrRecoveryEncoder(WJL_ERRRECOVERY_ENCODER* coder);
 
 	/******************************************************************************************
-	纠错译码函数，也是核心的纠错译码函数
-	WJL_ERRRECOVERY_DECODER** list 用来缓存LIST_SIZE个coder
-	int cumulativeZerosLimit 是通过连续译码0的个数来判定当前的错误是否完成纠错
+	纠错译码函数
 	******************************************************************************************/
 	int WJLErrRecoveryDecoder(WJL_ERRRECOVERY_DECODER* coder, WJL_ERRRECOVERY_DECODER** list);
+
 #ifdef	__cplusplus
 }
 #endif
