@@ -1,64 +1,64 @@
 #pragma once
 /******************************************************************************************
-åŸºäºæ°æ—ç çº é”™ç®—æ³•ç†è®ºï¼Œå¹¶åŸºäºæ–¹æ³•äºŒçš„ä¿¡æºå¤„ç†æ–¹æ³•ï¼š
-1ã€æ ¹æ®ã€Šæ°æ—ç åŸç†åŠåº”ç”¨ã€‹çš„æ–¹æ¡ˆäºŒï¼šåºåˆ—Xä¸­çš„ç¬¦å·0æ›¿æ¢ä¸º101,ä¸”å°†ç¬¦å·1æ›¿æ¢ä¸º01ï¼Œä»ç ç‡çš„è§’åº¦ä¸Šæ¥è®²æ–¹æ¡ˆä¸€çš„ç ç‡æ‰æ˜¯æœ€å¤§çš„ï¼Œä½†æ˜¯çº é”™èƒ½åŠ›å´æ˜¯æœ€å¼±çš„
-2ã€é‡‡ç”¨ä½ç¿»è½¬çš„çº é”™æ–¹æ¡ˆï¼Œä»æ•ˆç‡ä¸Šåšäº†ä¼˜åŒ–ï¼Œæ•ˆç‡æé«˜ç›¸æ¯”ä¹‹å‰ç‰ˆæœ¬æé«˜äº†ç™¾ä¸‡å€ä»¥ä¸Šï¼›
-3ã€æœ€å¤§æ”¯æŒ0dBçš„çº é”™ï¼Œç”±äºæ˜¯CPUçš„ç¼–ç¨‹ï¼Œå¹¶æœªå®ç°å¤šçº¿ç¨‹çš„çº é”™ï¼Œå¦‚æœåŸºäºGPUæˆ–NPUæ•ˆç‡èƒ½æœ€å¤§ç¨‹åº¦çš„æå‡ï¼›
-4ã€è¾“å…¥å­—èŠ‚è¶Šé•¿åˆ™ç ç‡è¶Šé«˜ï¼Œç†è®ºç¼–ç ç ç‡ä¸º-1/log_2(1/3) = 0.630929ï¼›
-5ã€å¯é€šè¿‡è®¾ç½®å‚æ•°å®ç°ä¸åŒç¨‹åº¦çš„çº é”™ï¼ŒSTART_LIMITã€END_LIMITã€COMPARE_LIMITå’ŒERRBITS_LIMITï¼›
-6ã€LIST_SIZEå‚æ•°å»ºè®®ä¸è¦è®¾ç½®çš„å¤ªä½ï¼Œä¸å¾—å°äºSTART_LIMIT + END_LIMIT + 1
+»ùÓÚ½ÜÁÖÂë¾À´íËã·¨ÀíÂÛ£¬²¢»ùÓÚ·½·¨¶şµÄĞÅÔ´´¦Àí·½·¨£º
+1¡¢¸ù¾İ¡¶½ÜÁÖÂëÔ­Àí¼°Ó¦ÓÃ¡·µÄ·½°¸¶ş£ºĞòÁĞXÖĞµÄ·ûºÅ0Ìæ»»Îª101,ÇÒ½«·ûºÅ1Ìæ»»Îª01£¬´ÓÂëÂÊµÄ½Ç¶ÈÉÏÀ´½²·½°¸Ò»µÄÂëÂÊ²ÅÊÇ×î´óµÄ£¬µ«ÊÇ¾À´íÄÜÁ¦È´ÊÇ×îÈõµÄ
+2¡¢²ÉÓÃÎ»·­×ªµÄ¾À´í·½°¸£¬´ÓĞ§ÂÊÉÏ×öÁËÓÅ»¯£¬Ğ§ÂÊÌá¸ßÏà±ÈÖ®Ç°°æ±¾Ìá¸ßÁË°ÙÍò±¶ÒÔÉÏ£»
+3¡¢×î´óÖ§³Ö0dBµÄ¾À´í£¬ÓÉÓÚÊÇCPUµÄ±à³Ì£¬²¢Î´ÊµÏÖ¶àÏß³ÌµÄ¾À´í£¬Èç¹û»ùÓÚGPU»òNPUĞ§ÂÊÄÜ×î´ó³Ì¶ÈµÄÌáÉı£»
+4¡¢ÊäÈë×Ö½ÚÔ½³¤ÔòÂëÂÊÔ½¸ß£¬ÀíÂÛ±àÂëÂëÂÊÎª-1/log_2(1/3) = 0.630929£»
+5¡¢¿ÉÍ¨¹ıÉèÖÃ²ÎÊıÊµÏÖ²»Í¬³Ì¶ÈµÄ¾À´í£¬START_LIMIT¡¢END_LIMIT¡¢COMPARE_LIMITºÍERRBITS_LIMIT£»
+6¡¢LIST_SIZE²ÎÊı½¨Òé²»ÒªÉèÖÃµÄÌ«µÍ£¬²»µÃĞ¡ÓÚSTART_LIMIT + END_LIMIT + 1
 
-ç†è®ºï¼šã€Šæ°æ—ç åŸç†åŠåº”ç”¨ã€‹
-ä½œè€…ï¼šç‹æ°æ—
-æè¿°ï¼šåŸºäºåŠ æƒæ¦‚ç‡æ¨¡å‹çš„çº é”™ç®—æ³•ï¼Œæ˜¯å…¨æ–°çš„çº é”™ç®—æ³•
-æ—¶é—´ï¼š20240411
-ç‰ˆæœ¬ï¼š6.0.0
-BUGä¿®å¤è¯´æ˜ï¼š
-1ã€å®Œå…¨æŒ‰ç…§è®ºæ–‡ç¼–å†™çš„æµ‹è¯•ç¨‹åº
-2ã€çº é”™æ•ˆç‡æå‡
+ÀíÂÛ£º¡¶½ÜÁÖÂëÔ­Àí¼°Ó¦ÓÃ¡·
+×÷Õß£ºÍõ½ÜÁÖ
+ÃèÊö£º»ùÓÚ¼ÓÈ¨¸ÅÂÊÄ£ĞÍµÄ¾À´íËã·¨£¬ÊÇÈ«ĞÂµÄ¾À´íËã·¨
+Ê±¼ä£º20240314
+°æ±¾£º6.0.0
+BUGĞŞ¸´ËµÃ÷£º
+1¡¢ÍêÈ«°´ÕÕÂÛÎÄ±àĞ´µÄ²âÊÔ³ÌĞò
+2¡¢¾À´íĞ§ÂÊÌáÉı
 ******************************************************************************************/
 #ifndef _WJLERRRECOVERYCORE_H
 #define _WJLERRRECOVERYCORE_H
 
-// å‚æ•°ç»“æ„ä½“ï¼Œè¿™äº›å€¼æ˜¯å½±å“çº é”™æ•ˆæœçš„æ ¸å¿ƒå‚æ•°ï¼Œå¯ä»¥æ ¹æ®ä¸åŒçš„ä¿¡é“è®¾ç½®ä¸åŒçš„å‚æ•°
+// ²ÎÊı½á¹¹Ìå£¬ÕâĞ©ÖµÊÇÓ°Ïì¾À´íĞ§¹ûµÄºËĞÄ²ÎÊı£¬¿ÉÒÔ¸ù¾İ²»Í¬µÄĞÅµÀÉèÖÃ²»Í¬µÄ²ÎÊı
 typedef struct
 {
-	// WJL_ERRRECOVERY_DECODERå¯¹è±¡åˆ—è¡¨å¤§å°ï¼Œä¸€èˆ¬è®¾ç½®ä¸º24ï¼Œ36ï¼Œå¦‚æœlistIndex >= coder->par->LIST_SIZEè¯´æ˜LIST_SIZEè®¾ç½®çš„å¤ªå°äº†
+	// WJL_ERRRECOVERY_DECODER¶ÔÏóÁĞ±í´óĞ¡£¬Ò»°ãÉèÖÃÎª24£¬36£¬Èç¹ûlistIndex >= coder->par->LIST_SIZEËµÃ÷LIST_SIZEÉèÖÃµÄÌ«Ğ¡ÁË
 	int LIST_SIZE;
-	// ç é•¿ï¼Œå•ä½ä¸ºå­—èŠ‚ï¼Œç¼–è¯‘ç é•¿åº¦
+	// Âë³¤£¬µ¥Î»Îª×Ö½Ú£¬±àÒëÂë³¤¶È
 	int CODE_LENGTH;
-	// æœ«å°¾è¿½åŠ çš„äºŒè¿›åˆ¶åºåˆ—Qçš„å­—èŠ‚é•¿åº¦ï¼Œå¯¹åº”è®ºæ–‡ä¸­çš„Îº
+	// Ä©Î²×·¼ÓµÄ¶ş½øÖÆĞòÁĞQµÄ×Ö½Ú³¤¶È£¬¶ÔÓ¦ÂÛÎÄÖĞµÄ¦Ê
 	int Q_LENGTH;
-	// çº é”™åŒºé—´çš„ä¸‹é™æå€¼ï¼Œå¯¹åº”è®ºæ–‡ä¸­çš„Î±
+	// ¾À´íÇø¼äµÄÏÂÏŞ¼«Öµ£¬¶ÔÓ¦ÂÛÎÄÖĞµÄ¦Á
 	int START_LIMIT;
-	// çº é”™åŒºé—´çš„ä¸Šé™æå€¼ï¼Œå¯¹åº”è®ºæ–‡ä¸­çš„Î²
+	// ¾À´íÇø¼äµÄÉÏÏŞ¼«Öµ£¬¶ÔÓ¦ÂÛÎÄÖĞµÄ¦Â
 	int END_LIMIT;
-	// çº é”™åŒºé—´å†…æœ€å¤§ç¿»è½¬æ¯”ç‰¹ä¸ªæ•°ï¼Œå¯¹åº”è®ºæ–‡ä¸­çš„Ï„_max
+	// ¾À´íÇø¼äÄÚ×î´ó·­×ª±ÈÌØ¸öÊı£¬¶ÔÓ¦ÂÛÎÄÖĞµÄ¦Ó_max
 	int ERRBITS_LIMIT;
-	// éå†ç±»å‹ï¼Œ0è¡¨ç¤ºä»1æ¯”ç‰¹é”™è¯¯éå†åˆ°ERRBITS_LIMITï¼Œ1è¡¨ç¤ºä»ERRBITS_LIMITéå†åˆ°1
+	// ±éÀúÀàĞÍ£¬0±íÊ¾´Ó1±ÈÌØ´íÎó±éÀúµ½ERRBITS_LIMIT£¬1±íÊ¾´ÓERRBITS_LIMIT±éÀúµ½1
 	int ERGODIC_MODEL;
-	// CODE_LENGTHå’ŒQ_LENGTHç¡®å®šæ—¶ï¼Œç¼–ç åæœ«å°¾æœ‰å‡ ä¸ªå­—èŠ‚æ˜¯å®Œå…¨ç›¸åŒçš„ï¼Œå¯¹äºè¯‘ç ç«¯æ¥è®²è¿™äº›å­—èŠ‚å®Œå…¨å¯ä»¥åœ¨è¯‘ç æ—¶åŠ ä¸Šï¼Œæ— éœ€ä¼ è¾“ä»è€Œæé«˜ä¼ è¾“é€Ÿç‡
+	// CODE_LENGTHºÍQ_LENGTHÈ·¶¨Ê±£¬±àÂëºóÄ©Î²ÓĞ¼¸¸ö×Ö½ÚÊÇÍêÈ«ÏàÍ¬µÄ£¬¶ÔÓÚÒëÂë¶ËÀ´½²ÕâĞ©×Ö½ÚÍêÈ«¿ÉÒÔÔÚÒëÂëÊ±¼ÓÉÏ£¬ÎŞĞè´«Êä´Ó¶øÌá¸ß´«ÊäËÙÂÊ
 	unsigned char* SynchronizationBytes;
 	int SynchronizationLength;
 
 }WJL_ALGORITHM_PARAMETERS;
 
-// æ°æ—ç çº é”™ç¼–ç ç»“æ„ä½“
+// ½ÜÁÖÂë¾À´í±àÂë½á¹¹Ìå
 typedef struct
 {
-	// è¾“å…¥
-	WJL_ALGORITHM_PARAMETERS* par; // å‚æ•°å¯¹è±¡ï¼Œä¸åŒçš„å‚æ•°å¯¹åº”ä¸åŒçš„è¯‘ç èƒ½åŠ›
+	// ÊäÈë
+	WJL_ALGORITHM_PARAMETERS* par; // ²ÎÊı¶ÔÏó£¬²»Í¬µÄ²ÎÊı¶ÔÓ¦²»Í¬µÄÒëÂëÄÜÁ¦
 
-	unsigned char* InBytesArray;   // è¾“å…¥å­—èŠ‚ç¼“å­˜æ•°ç»„
-	unsigned int InBytesLength;    // è¾“å…¥å­—èŠ‚çš„æ€»é•¿åº¦
-	unsigned int InBytesIndex;     // InBytesArrayçš„ä¸‹æ ‡
+	unsigned char* InBytesArray;   // ÊäÈë×Ö½Ú»º´æÊı×é
+	unsigned int InBytesLength;    // ÊäÈë×Ö½ÚµÄ×Ü³¤¶È
+	unsigned int InBytesIndex;     // InBytesArrayµÄÏÂ±ê
 
-	// è¾“å‡º
-	unsigned char* OutBytesArray;  // è¾“å‡ºå­—èŠ‚ç¼“å­˜æ•°ç»„
-	unsigned int OutBytesLength;   // è¾“å‡ºå­—èŠ‚çš„æ€»é•¿åº¦
-	unsigned int OutBytesIndex;    // OutBytesArrayçš„ä¸‹æ ‡
+	// Êä³ö
+	unsigned char* OutBytesArray;  // Êä³ö×Ö½Ú»º´æÊı×é
+	unsigned int OutBytesLength;   // Êä³ö×Ö½ÚµÄ×Ü³¤¶È
+	unsigned int OutBytesIndex;    // OutBytesArrayµÄÏÂ±ê
 
-	// è¿ç®—å˜é‡ï¼Œå…¶ä¸­Liå’ŒRiçš„è¿ç®—å‚è€ƒã€Šæ°æ—ç åŸç†åŠåº”ç”¨ã€‹ä¸€ä¹¦
+	// ÔËËã±äÁ¿£¬ÆäÖĞLiºÍRiµÄÔËËã²Î¿¼¡¶½ÜÁÖÂëÔ­Àí¼°Ó¦ÓÃ¡·Ò»Êé
 	unsigned int Li;
 	unsigned int Ri;
 	unsigned int Delay;
@@ -66,52 +66,52 @@ typedef struct
 
 }WJL_ERRRECOVERY_ENCODER;
 
-// çº é”™å‡½æ•°ä¼ é€’ç»“æ„ä½“
+// ¾À´íº¯Êı´«µİ½á¹¹Ìå
 typedef struct
 {
-	int max_errbits;              // errbitsçš„æœ€å¤§å€¼
-	int listIndex;                // listçš„ä¸‹æ ‡
-	int errbits;                  // å½“å‰çº é”™æ¯”ç‰¹
-	int findPos;                  // æ£€é”™è¯‘ç æ‰¾åˆ°çš„é”™è¯¯å­—èŠ‚ä½ç½®
-	int determine;                // æ ¹æ®findPoså’ŒDETECTION_LENGTHåˆ¤å®šçº é”™åŒºé—´å†…é¦–ä¸ªé”™è¯¯å­—èŠ‚æ˜¯å¦è¢«çº æ­£
-	int compare;                  // è®°å½•æœ€å¤§å¯èƒ½æ€§çš„åˆ¤å†³
-	int startBytePos;             // æ ¹æ®findPoså’ŒSTART_LIMITç¡®å®šçš„çº é”™åŒºé—´ä¸‹é™ï¼ŒæŒ‡InBytesArrayæ•°ç»„çš„ä¸‹æ ‡
-	int endBytePos;               // æ ¹æ®findPoså’ŒEND_LIMITç¡®å®šçš„çº é”™åŒºé—´ä¸‹é™ï¼ŒæŒ‡InBytesArrayæ•°ç»„çš„ä¸‹æ ‡
-	int endpos;                   // éœ€è¦ç¿»è½¬çš„æ¯”ç‰¹åŒºé—´ä¸Šé™ï¼ŒendBytePoså¯¹åº”å­—èŠ‚çš„æœ€åä¸€ä¸ªæ¯”ç‰¹ä½
-	int startpos;                 // éœ€è¦ç¿»è½¬çš„æ¯”ç‰¹åŒºé—´ä¸‹é™ï¼ŒstartBytePoså¯¹åº”å­—èŠ‚çš„ç¬¬ä¸€ä¸ªæ¯”ç‰¹ä½
-	int correctedBytePos;         // è¢«çº æ­£å­—èŠ‚çš„ä¸‹æ ‡ï¼ŒæŒ‡InBytesArrayæ•°ç»„çš„ä¸‹æ ‡
-	int max_checkfindPos;         // è®°å½•æ£€é”™è¯‘ç æœ€å¤§findPos
+	int max_errbits;              // errbitsµÄ×î´óÖµ
+	int listIndex;                // listµÄÏÂ±ê
+	int errbits;                  // µ±Ç°¾À´í±ÈÌØ
+	int findPos;                  // ¼ì´íÒëÂëÕÒµ½µÄ´íÎó×Ö½ÚÎ»ÖÃ
+	int determine;                // ¸ù¾İfindPosºÍDETECTION_LENGTHÅĞ¶¨¾À´íÇø¼äÄÚÊ×¸ö´íÎó×Ö½ÚÊÇ·ñ±»¾ÀÕı
+	int compare;                  // ¼ÇÂ¼×î´ó¿ÉÄÜĞÔµÄÅĞ¾ö
+	int startBytePos;             // ¸ù¾İfindPosºÍSTART_LIMITÈ·¶¨µÄ¾À´íÇø¼äÏÂÏŞ£¬Ö¸InBytesArrayÊı×éµÄÏÂ±ê
+	int endBytePos;               // ¸ù¾İfindPosºÍEND_LIMITÈ·¶¨µÄ¾À´íÇø¼äÏÂÏŞ£¬Ö¸InBytesArrayÊı×éµÄÏÂ±ê
+	int endpos;                   // ĞèÒª·­×ªµÄ±ÈÌØÇø¼äÉÏÏŞ£¬endBytePos¶ÔÓ¦×Ö½ÚµÄ×îºóÒ»¸ö±ÈÌØÎ»
+	int startpos;                 // ĞèÒª·­×ªµÄ±ÈÌØÇø¼äÏÂÏŞ£¬startBytePos¶ÔÓ¦×Ö½ÚµÄµÚÒ»¸ö±ÈÌØÎ»
+	int correctedBytePos;         // ±»¾ÀÕı×Ö½ÚµÄÏÂ±ê£¬Ö¸InBytesArrayÊı×éµÄÏÂ±ê
+	int max_checkfindPos;         // ¼ÇÂ¼¼ì´íÒëÂë×î´ófindPos
 }WJL_FUNCTION_PARAMETERS;
 
-// çº é”™å®Œæ¯•åä¹Ÿéœ€è¦è§£ç å™¨
+// ¾À´íÍê±ÏºóÒ²ĞèÒª½âÂëÆ÷
 typedef struct
 {
-	// è¾“å…¥
-	WJL_ALGORITHM_PARAMETERS* par;           // å‚æ•°å¯¹è±¡ï¼Œä¸åŒçš„å‚æ•°å¯¹åº”ä¸åŒçš„è¯‘ç èƒ½åŠ›
+	// ÊäÈë
+	WJL_ALGORITHM_PARAMETERS* par;           // ²ÎÊı¶ÔÏó£¬²»Í¬µÄ²ÎÊı¶ÔÓ¦²»Í¬µÄÒëÂëÄÜÁ¦
 
-	unsigned char* InBytesArray;             // è¾“å…¥å­—èŠ‚ç¼“å­˜æ•°ç»„
-	unsigned int InBytesLength;              // è¾“å…¥å­—èŠ‚çš„æ€»é•¿åº¦
-	unsigned int InBytesIndex;               // InBytesArrayçš„ä¸‹æ ‡
-	// è¾“å‡º
-	unsigned char* OutBytesArray;            // è¾“å‡ºå­—èŠ‚ç¼“å­˜æ•°ç»„
-	unsigned int OutBytesLength;             // è¾“å‡ºå­—èŠ‚çš„æ€»é•¿åº¦
-	unsigned int OutBytesIndex;              // OutBytesArrayçš„ä¸‹æ ‡
+	unsigned char* InBytesArray;             // ÊäÈë×Ö½Ú»º´æÊı×é
+	unsigned int InBytesLength;              // ÊäÈë×Ö½ÚµÄ×Ü³¤¶È
+	unsigned int InBytesIndex;               // InBytesArrayµÄÏÂ±ê
+	// Êä³ö
+	unsigned char* OutBytesArray;            // Êä³ö×Ö½Ú»º´æÊı×é
+	unsigned int OutBytesLength;             // Êä³ö×Ö½ÚµÄ×Ü³¤¶È
+	unsigned int OutBytesIndex;              // OutBytesArrayµÄÏÂ±ê
 
 	unsigned int Li;
 	unsigned int Ri;
-	unsigned int value;		                 // è§£ç æ—¶ç”¨æ¥ä¿å­˜è¾“å…¥ç¼–ç ï¼ˆæ¥æ”¶ç«¯ä¸ºUï¼‰
+	unsigned int value;		                 // ½âÂëÊ±ÓÃÀ´±£´æÊäÈë±àÂë£¨½ÓÊÕ¶ËÎªU£©
 
-	unsigned char mask;                      // å­—èŠ‚è½®å€¼ï¼Œ8ä¸ªæ¯”ç‰¹ç»„åˆæˆä¸€ä¸ªå­—èŠ‚
-	unsigned char outbyte;                   // è¾“å‡ºçš„å­—èŠ‚
+	unsigned char mask;                      // ×Ö½ÚÂÖÖµ£¬8¸ö±ÈÌØ×éºÏ³ÉÒ»¸ö×Ö½Ú
+	unsigned char outbyte;                   // Êä³öµÄ×Ö½Ú
 
-	unsigned char full;                      // æŒ‰ç…§æ¯”ç‰¹è¯‘ç ï¼Œè¾“å‡ºæ˜¯å¦æ»¡è¶³ä¸€ä¸ªå­—èŠ‚
-	unsigned char status;                    // çŠ¶æ€ï¼Œ0x01è¡¨ç¤ºè¯‘ç çŠ¶æ€ï¼Œ0x00è¡¨ç¤ºçº é”™çŠ¶æ€ï¼Œç”¨æ¥æ˜¯å¦åœ¨Listä¸­ç¼“å­˜coder
+	unsigned char full;                      // °´ÕÕ±ÈÌØÒëÂë£¬Êä³öÊÇ·ñÂú×ãÒ»¸ö×Ö½Ú
+	unsigned char status;                    // ×´Ì¬£¬0x01±íÊ¾ÒëÂë×´Ì¬£¬0x00±íÊ¾¾À´í×´Ì¬£¬ÓÃÀ´ÊÇ·ñÔÚListÖĞ»º´æcoder
 
-	unsigned char keepBackSymbol;            // ç”¨äºä¿¡æºå¤„ç†æ–¹æ³•åˆ¤æ–­çš„ç»“æ„ä½“
+	unsigned char keepBackSymbol;            // ÓÃÓÚĞÅÔ´´¦Àí·½·¨ÅĞ¶ÏµÄ½á¹¹Ìå
 
-	unsigned char* BytesArray;               // çº é”™æ—¶ç¼“å­˜InBytesArray
+	unsigned char* BytesArray;               // ¾À´íÊ±»º´æInBytesArray
 	
-	// æ£€é”™è¯‘ç å‚æ•°ä¼ é€’å˜é‡ï¼Œä»…éœ€ä¸¤ä¸ªè¿­ä»£ä½¿ç”¨å³å¯
+	// ¼ì´íÒëÂë²ÎÊı´«µİ±äÁ¿£¬½öĞèÁ½¸öµü´úÊ¹ÓÃ¼´¿É
 	WJL_FUNCTION_PARAMETERS* wfp;
 
 }WJL_ERRRECOVERY_DECODER;
@@ -120,12 +120,12 @@ typedef struct
 extern "C" {
 #endif
 	/******************************************************************************************
-	çº é”™ç¼–ç å‡½æ•°
+	¾À´í±àÂëº¯Êı
 	******************************************************************************************/
 	int WJLErrRecoveryEncoder(WJL_ERRRECOVERY_ENCODER* coder);
 
 	/******************************************************************************************
-	çº é”™è¯‘ç å‡½æ•°
+	¾À´íÒëÂëº¯Êı
 	******************************************************************************************/
 	int WJLErrRecoveryDecoder(WJL_ERRRECOVERY_DECODER* coder, WJL_ERRRECOVERY_DECODER** list);
 
