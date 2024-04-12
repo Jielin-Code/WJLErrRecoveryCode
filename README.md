@@ -15,12 +15,20 @@ Time: 20240410
 Version: 6.0.0
 
 // 设置译码器队列长度
-	par->LIST_SIZE = 48;
-	par->CODE_LENGTH = 8;      // 同步字节后，设置为8可得
-	par->Q_LENGTH = 3;         // 最小值为1，末尾编码Q_LENGTH个0xFF，以满足末尾字节的纠错校验长度，末尾一定范围内的字节会出现相同值
-	par->START_LIMIT = 10;     // 5dB和6dB检验此处为8
-	par->END_LIMIT = 8;
-	par->ERRBITS_LIMIT = 10;   // 最大为10，最小为1
-	par->ERGODIC_MODEL = 0;    // 0表示从1比特翻转遍历到ERRBITS_LIMIT比特的翻转，1表示从ERRBITS_LIMIT比特翻转遍历到1比特的翻转
-	par->SynchronizationBytes = (unsigned char*)malloc(par->CODE_LENGTH * 10);
-	par->SynchronizationLength = 0;
+par->LIST_SIZE = 48;
+
+par->CODE_LENGTH = 8;      // 同步字节后，设置为8可得
+
+par->Q_LENGTH = 3;         // 最小值为1，末尾编码Q_LENGTH个0xFF，以满足末尾字节的纠错校验长度，末尾一定范围内的字节会出现相同值
+
+par->START_LIMIT = 10;     // 5dB和6dB检验此处为8
+
+par->END_LIMIT = 8;
+
+par->ERRBITS_LIMIT = 10;   // 最大为10，最小为1
+
+par->ERGODIC_MODEL = 0;    // 0表示从1比特翻转遍历到ERRBITS_LIMIT比特的翻转，1表示从ERRBITS_LIMIT比特翻转遍历到1比特的翻转
+
+par->SynchronizationBytes = (unsigned char*)malloc(par->CODE_LENGTH * 10);
+
+par->SynchronizationLength = 0;
