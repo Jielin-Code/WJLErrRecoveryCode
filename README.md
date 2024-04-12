@@ -14,8 +14,8 @@ Description: The error correction algorithm based on the weighted probability mo
 Time: 20240410
 Version: 6.0.0
 
-// 设置译码器队列长度
-par->LIST_SIZE = 48;
+
+par->LIST_SIZE = 48;       // 设置译码器队列长度
 
 par->CODE_LENGTH = 8;      // 同步字节后，设置为8可得
 
